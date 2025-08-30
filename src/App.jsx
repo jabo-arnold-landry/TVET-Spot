@@ -1,7 +1,10 @@
+import Microlink from "@microlink/react";
+import MyGrowthSection from "./pages/MyGrowthSection";
+import Card from "./components/Card";
 function App() {
   return (
     <>
-      <h1 className="bg-green-400 text-center text-white">Tvet Bridge</h1>
+      <MyGrowthSection />
     </>
   );
 }
