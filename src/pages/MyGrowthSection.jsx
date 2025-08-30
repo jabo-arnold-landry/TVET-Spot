@@ -1,4 +1,9 @@
-// import { } from  'react-icons';
+import {
+  AwardIcon,
+  PlusIcon,
+  LucideBotMessageSquare,
+  ChartLine,
+} from "lucide-react";
 export default function MyGrowthSection() {
   return (
     <>
@@ -22,8 +27,8 @@ export default function MyGrowthSection() {
         <strong className="font-bold capitalize justify-self-start">
           recent badges
         </strong>
-        <div className="flex gap-5">
-          <img src="" alt="reward-icon" />
+        <div className="flex gap-3">
+          <AwardIcon className="size-10 text-gray-600 bg-gray-300 rounded-2xl p-1" />
           <div className="info">
             <strong>Silver Achiever</strong>
             <p className="text-azure-34">achieved last 7 days</p>
@@ -33,15 +38,15 @@ export default function MyGrowthSection() {
       <div className="grid gap-3 bg-white-solid rounded-md m-4 px-2 py-1 border border-gray-200">
         <strong className="font-bold capitalize">quick actions</strong>
         <div className="flex gap-3 border border-progress rounded-sm px-2 py-1 cursor-pointer">
-          <span>+</span>
+          <PlusIcon />
           <button>add project to showcase</button>
         </div>
         <div className="flex gap-3 border border-progress rounded-sm px-2 py-1 cursor-pointer">
-          <span>+</span>
+          <LucideBotMessageSquare />
           <button>request testimony</button>
         </div>
         <div className="flex gap-3 border border-progress rounded-sm px-2 py-1 cursor-pointer">
-          <span>+</span>
+          <ChartLine />
           <button>view leaderboard</button>
         </div>
       </div>
