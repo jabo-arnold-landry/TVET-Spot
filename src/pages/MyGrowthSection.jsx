@@ -4,6 +4,7 @@ import {
   LucideBotMessageSquare,
   ChartLine,
 } from "lucide-react";
+import Card from "../components/Card";
 export default function MyGrowthSection() {
   return (
     <>
@@ -37,18 +38,18 @@ export default function MyGrowthSection() {
       </div>
       <div className="grid gap-3 bg-white-solid rounded-md m-4 px-2 py-1 border border-gray-200">
         <strong className="font-bold capitalize">quick actions</strong>
-        <div className="flex gap-3 border border-progress rounded-sm px-2 py-1 cursor-pointer">
+        <Card>
           <PlusIcon />
           <button>add project to showcase</button>
-        </div>
-        <div className="flex gap-3 border border-progress rounded-sm px-2 py-1 cursor-pointer">
+        </Card>
+        <Card>
           <LucideBotMessageSquare />
           <button>request testimony</button>
-        </div>
-        <div className="flex gap-3 border border-progress rounded-sm px-2 py-1 cursor-pointer">
+        </Card>
+        <Card>
           <ChartLine />
           <button>view leaderboard</button>
-        </div>
+        </Card>
       </div>
     </>
   );
