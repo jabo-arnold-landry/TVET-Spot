@@ -5,6 +5,7 @@ import {
   ChartLine,
 } from "lucide-react";
 import Card from "../components/Card";
+import { settingItems } from "../indexBD";
 export default function MyGrowthSection() {
   return (
     <>
@@ -51,6 +52,39 @@ export default function MyGrowthSection() {
           <button>view leaderboard</button>
         </Card>
       </div>
+    </>
+  );
+}
+
+function Showcase() {
+  const [link, setLink] = useState("");
+  return (
+    <>
+      <div className="bg-black fixed inset-0 opacity-[0.5] pointer-none: z-10"></div>
+      <form className="relative z-30 bg-white-solid grid place-items-center mx-5 p-7">
+        <div className="grid">
+          <label htmlFor="showcase">showcase</label>
+          <br />
+          <input
+            type="text"
+            id="showcase"
+            className="border"
+            onChange={(e) => setLink(e.target.value)}
+            value={link}
+          />{" "}
+          <br />
+          <button
+            className="bg-primary text-white"
+            onClick={async (e) => {
+              e.preventDefault();
+              await settingItems({ url: link, cors: false });
+              setLink("");
+            }}
+          >
+            Document portifolio
+          </button>
+        </div>
+      </form>
     </>
   );
 }
