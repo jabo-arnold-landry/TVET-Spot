@@ -40,7 +40,7 @@ export default function MyGrowthSection() {
           </div>
         </div>
       </div>
-      <div className="grid gap-3 bg-white-solid rounded-md m-4 px-2 py-1 border border-gray-200">
+      <div className="relative grid gap-3 bg-white-solid rounded-md m-4 px-2 py-1 border border-gray-200">
         <strong className="font-bold capitalize">quick actions</strong>
         <Card>
           <PlusIcon />
@@ -52,8 +52,8 @@ export default function MyGrowthSection() {
           <ChartLine />
           <button>view leaderboard</button>
         </Card>
+        <Showcase isOpen={showPopup} onClose={() => setShowPopup(false)} />
       </div>
-      <Showcase isOpen={showPopup} onClose={() => setShowPopup(false)} />
     </>
   );
 }
@@ -75,13 +75,13 @@ function Showcase({ isOpen, onClose }) {
             onClick={onClose}
           />
           <motion.form
-            className="fixed z-30 bg-white-solid grid place-items-center mx-5 p-7 rounded-md shadow-lg"
+            className="absolute top-8 col-span-full justify-self-center z-30 bg-white-solid grid place-items-center mx-5 p-7 rounded-md shadow-lg"
             initial={{ scale: 0.8, opacity: 0, y: 50 }}
             animate={{ scale: 1, opacity: 1, y: 0 }}
             exit={{ scale: 0.8, opacity: 0, y: 50 }}
             transition={{ duration: 0.3, ease: "easeOut" }}
           >
-            <div className="grid">
+            <div className="grid gap-1.5">
               <label htmlFor="showcase">showcase</label>
               <input
                 type="text"
@@ -91,7 +91,7 @@ function Showcase({ isOpen, onClose }) {
                 value={link}
               />
               <button
-                className="bg-primary text-white mt-2"
+                className="text-white bg-primary rounded p-1 capitalize"
                 onClick={async (e) => {
                   e.preventDefault();
                   await settingItems({ url: link, cors: false });
@@ -99,7 +99,7 @@ function Showcase({ isOpen, onClose }) {
                   onClose();
                 }}
               >
-                Document portfolio
+                Save
               </button>
             </div>
           </motion.form>
