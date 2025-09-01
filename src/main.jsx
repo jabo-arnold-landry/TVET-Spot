@@ -8,6 +8,5 @@ import TabComponent from "./competition.jsx";
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <App />
-    <TabComponent />
   </StrictMode>
 );
