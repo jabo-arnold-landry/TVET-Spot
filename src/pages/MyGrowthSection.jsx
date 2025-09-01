@@ -6,7 +6,10 @@ import {
 } from "lucide-react";
 import Card from "../components/Card";
 import { settingItems } from "../indexBD";
+
+import { motion, AnimatePresence } from "framer-motion";
 export default function MyGrowthSection() {
+  const [showPopup, setShowPopup] = useState(false);
   return (
     <>
       <div className="grid gap-3 bg-white-solid rounded-md m-4 px-2 py-1 border border-gray-200">
@@ -41,46 +44,67 @@ export default function MyGrowthSection() {
         <strong className="font-bold capitalize">quick actions</strong>
         <Card>
           <PlusIcon />
-          <button>add project to showcase</button>
+          <button onClick={() => setShowPopup(true)}>
+            add project to showcase
+          </button>
         </Card>
         <Card>
           <ChartLine />
           <button>view leaderboard</button>
         </Card>
       </div>
+      <Showcase isOpen={showPopup} onClose={() => setShowPopup(false)} />
     </>
   );
 }
 
-function Showcase() {
+import { useState } from "react";
+
+function Showcase({ isOpen, onClose }) {
   const [link, setLink] = useState("");
+
   return (
-    <>
-      <div className="bg-black fixed inset-0 opacity-[0.5] pointer-none: z-10"></div>
-      <form className="relative z-30 bg-white-solid grid place-items-center mx-5 p-7">
-        <div className="grid">
-          <label htmlFor="showcase">showcase</label>
-          <br />
-          <input
-            type="text"
-            id="showcase"
-            className="border"
-            onChange={(e) => setLink(e.target.value)}
-            value={link}
-          />{" "}
-          <br />
-          <button
-            className="bg-primary text-white"
-            onClick={async (e) => {
-              e.preventDefault();
-              await settingItems({ url: link, cors: false });
-              setLink("");
-            }}
+    <AnimatePresence>
+      {isOpen && (
+        <>
+          <motion.div
+            className="bg-black fixed inset-0 opacity-[0.5] z-10"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 0.5 }}
+            exit={{ opacity: 0 }}
+            onClick={onClose}
+          />
+          <motion.form
+            className="fixed z-30 bg-white-solid grid place-items-center mx-5 p-7 rounded-md shadow-lg"
+            initial={{ scale: 0.8, opacity: 0, y: 50 }}
+            animate={{ scale: 1, opacity: 1, y: 0 }}
+            exit={{ scale: 0.8, opacity: 0, y: 50 }}
+            transition={{ duration: 0.3, ease: "easeOut" }}
           >
-            Document portifolio
-          </button>
-        </div>
-      </form>
-    </>
+            <div className="grid">
+              <label htmlFor="showcase">showcase</label>
+              <input
+                type="text"
+                id="showcase"
+                className="border"
+                onChange={(e) => setLink(e.target.value)}
+                value={link}
+              />
+              <button
+                className="bg-primary text-white mt-2"
+                onClick={async (e) => {
+                  e.preventDefault();
+                  await settingItems({ url: link, cors: false });
+                  setLink("");
+                  onClose();
+                }}
+              >
+                Document portfolio
+              </button>
+            </div>
+          </motion.form>
+        </>
+      )}
+    </AnimatePresence>
   );
 }
