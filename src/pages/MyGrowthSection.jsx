@@ -44,10 +44,6 @@ export default function MyGrowthSection() {
           <button>add project to showcase</button>
         </Card>
         <Card>
-          <LucideBotMessageSquare />
-          <button>request testimony</button>
-        </Card>
-        <Card>
           <ChartLine />
           <button>view leaderboard</button>
         </Card>
@@ -83,23 +79,6 @@ function Showcase() {
           >
             Document portifolio
           </button>
-        </div>
-      </form>
-    </>
-  );
-}
-
-function Testimony() {
-  return (
-    <>
-      <div className="bg-black fixed inset-0 opacity-[0.5] pointer-none: z-10"></div>
-      <form className="relative -top-16 z-30 bg-white-solid grid place-items-center mx-5 p-7 w-fit ">
-        <div className="grid">
-          <label htmlFor="showcase">names</label>
-          <br />
-          <input type="text" id="names" className="border" /> <br />
-          <textarea name="" id="" placeholder="input the content"></textarea>
-          <button className="bg-primary text-white">Testitify</button>
         </div>
       </form>
     </>
