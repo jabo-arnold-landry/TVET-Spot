@@ -6,7 +6,7 @@ const TabComponent = () => {
   const [activeTab, setActiveTab] = useState("A");
 
   return (
-    <div className="w-full max-w-4xl mx-auto p-4">
+    <div className="w-full  mx-auto p-4">
       <div className="bg-white shadow-lg rounded-lg overflow-hidden">
         {/* Tab Headers */}
         <div className="flex">

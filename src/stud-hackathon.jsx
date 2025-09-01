@@ -104,7 +104,7 @@ const HackathonsSection = () => {
   const isJoined = (challengeId) => joinedChallenges.includes(challengeId);
 
   return (
-    <div className="w-full max-w-4xl mx-auto p-6 bg-gray-50 min-h-screen">
+    <div className="w-full  mx-auto p-6 bg-gray-50 min-h-screen">
       <div className="mb-6 flex justify-between items-center">
         <h2 className="text-2xl font-bold text-gray-800">
           Available Hackathons
@@ -187,7 +187,7 @@ const HackathonsSection = () => {
 
       {/* Modal */}
       {selectedChallenge && (
-        <div className="fixed inset-0 bg-gray bg-opacity-10 flex items-center justify-center z-50 p-4">
+        <div className="fixed inset-0 bg-black/30 backdrop-blur-sm flex items-center justify-center z-50 p-4">
           <div className="bg-white rounded-lg max-w-4xl w-full max-h-[90vh] overflow-y-auto">
             {/* Modal Header */}
             <div className="sticky top-0 bg-white border-b border-gray-200 px-6 py-4 flex justify-between items-start">
