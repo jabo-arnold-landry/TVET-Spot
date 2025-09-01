@@ -127,7 +127,7 @@ export default function TVETDashboard() {
   };
 
   const ChallengeModal = ({ challenge, onClose }) => (
-    <div className="fixed inset-0 bg-black/50  flex items-center justify-center z-50 p-4">
+    <div className="fixed inset-0 bg-black/50  lg:flex md:flex-row items-center justify-center z-50 p-4 ">
       <div className="bg-white rounded-xl p-4 sm:p-6 max-w-2xl w-full max-h-[90vh] overflow-y-auto border">
         <div className="flex justify-between items-center mb-4">
           <h2 className="text-lg sm:text-xl font-bold text-gray-900">Challenge Details</h2>
