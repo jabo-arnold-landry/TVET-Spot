@@ -1,1 +1,12 @@
 @import "tailwindcss";
+
+@theme {
+  --color-primary: hsla(221, 97%, 53%, 1);
+  --color-white-solid: hsla(0, 0%, 100%, 1);
+  --color-azure-34: hsla(215, 16%, 34%, 1);
+  --color-progress: hsla(244, 81%, 4%, 0.2);
+  --color-progress-bar: hsla(244, 81%, 4%, 1);
+}
+body {
+  background-color: hsla(210, 24%, 98%, 1);
+}
