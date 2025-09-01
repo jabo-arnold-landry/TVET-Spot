@@ -127,8 +127,8 @@ export default function TVETDashboard() {
   };
 
   const ChallengeModal = ({ challenge, onClose }) => (
-    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
-      <div className="bg-white rounded-xl p-4 sm:p-6 max-w-2xl w-full max-h-[90vh] overflow-y-auto">
+    <div className="fixed inset-0 bg-black/50  flex items-center justify-center z-50 p-4">
+      <div className="bg-white rounded-xl p-4 sm:p-6 max-w-2xl w-full max-h-[90vh] overflow-y-auto border">
         <div className="flex justify-between items-center mb-4">
           <h2 className="text-lg sm:text-xl font-bold text-gray-900">Challenge Details</h2>
           <button onClick={onClose} className="text-gray-500 hover:text-gray-700">
@@ -165,8 +165,8 @@ export default function TVETDashboard() {
             <h4 className="font-semibold mb-2 text-sm sm:text-base">Challenge Management</h4>
             <div className="space-y-2">
               <button className="w-full bg-blue-600 text-white p-2 rounded-lg text-sm sm:text-base">Edit Challenge Details</button>
-              <button className="w-full bg-yellow-500 text-white p-2 rounded-lg text-sm sm:text-base">Send Reminder to Participants</button>
-              <button className="w-full border border-red-300 text-red-600 p-2 rounded-lg text-sm sm:text-base">Archive Challenge</button>
+              <button className="w-full bg-black text-white p-2 rounded-lg text-sm sm:text-base">Send Reminder to Participants</button>
+              <button className="w-full border border-green-300 text-green-800 p-2 rounded-lg text-sm sm:text-base">Archive Challenge</button>
             </div>
           </div>
         </div>
@@ -175,131 +175,15 @@ export default function TVETDashboard() {
   );
 
   return (
-    <div className="min-h-screen bg-gray-50">
-      {/* Header */}
-      <header className="bg-white shadow-sm border-b">
-        <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between px-4 sm:px-6 py-3 space-y-4 lg:space-y-0">
-          <div className="flex items-center space-x-4">
-            <div className="bg-green-500 p-2 rounded-lg">
-              <div className="w-6 h-6 bg-white rounded flex items-center justify-center">
-                <span className="text-green-500 text-xs font-bold">TB</span>
-              </div>
-            </div>
-            <div>
-              <h1 className="text-lg font-semibold text-gray-900">TVET Bridge</h1>
-              <p className="text-sm text-gray-500 hidden sm:block">Connect • Grow • Succeed</p>
-            </div>
-          </div>
-          
-          <nav className="hidden md:flex space-x-8">
-            <a href="#" className="bg-green-500 text-white px-4 py-2 rounded-lg font-medium">
-              Home
-            </a>
-            <a href="#" className="text-gray-600 hover:text-gray-900 px-4 py-2">
-              Dashboard
-            </a>
-            <a href="#" className="text-gray-600 hover:text-gray-900 px-4 py-2">
-              Rankings
-            </a>
-          </nav>
-          
-          <div className="flex items-center space-x-2 sm:space-x-4 w-full lg:w-auto justify-between lg:justify-end">
-            <select className="border border-gray-300 rounded-lg px-2 sm:px-3 py-2 text-xs sm:text-sm flex-1 lg:flex-none">
-              <option>TVET Org</option>
-            </select>
-            <div className="bg-green-100 text-green-700 w-8 h-8 rounded-full flex items-center justify-center font-medium text-sm">
-              TA
-            </div>
-            <button className="text-gray-600 hover:text-gray-900 text-xs sm:text-sm flex items-center space-x-1">
-              <ExternalLink size={14} />
-              <span className="hidden sm:inline">Logout</span>
-            </button>
-          </div>
-        </div>
-        
-        {/* Mobile Navigation */}
-        <nav className="md:hidden border-t px-4 sm:px-6 py-3">
-          <div className="flex space-x-4 overflow-x-auto">
-            <a href="#" className="bg-green-500 text-white px-3 py-2 rounded-lg font-medium text-sm whitespace-nowrap">
-              Home
-            </a>
-            <a href="#" className="text-gray-600 hover:text-gray-900 px-3 py-2 text-sm whitespace-nowrap">
-              Dashboard
-            </a>
-            <a href="#" className="text-gray-600 hover:text-gray-900 px-3 py-2 text-sm whitespace-nowrap">
-              Rankings
-            </a>
-          </div>
-        </nav>
-      </header>
+    <div className="min-h-screen bg-gray-50">      
 
-      <div className="p-4 sm:p-6">
-        {/* Page Title */}
-        <div className="mb-6 sm:mb-8">
-          <h1 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-2">TVET Organization Dashboard</h1>
-          <p className="text-sm sm:text-base text-gray-600">Monitor ecosystem health and manage educational initiatives</p>
-        </div>
+      <div className="p-4 sm:p-6">       
 
-        {/* Stats Cards */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mb-6 sm:mb-8">
-          <div className="bg-white rounded-xl p-6 shadow-sm border">
-            <div className="flex items-center justify-between mb-4">
-              <div>
-                <p className="text-sm text-gray-600 mb-1">Active Students</p>
-                <p className="text-3xl font-bold text-gray-900">1,247</p>
-                <p className="text-sm text-green-600">+12% from last month</p>
-              </div>
-              <div className="bg-blue-100 p-3 rounded-lg">
-                <Users className="text-blue-600" size={24} />
-              </div>
-            </div>
-          </div>
-
-          <div className="bg-white rounded-xl p-6 shadow-sm border">
-            <div className="flex items-center justify-between mb-4">
-              <div>
-                <p className="text-sm text-gray-600 mb-1">Active Challenges</p>
-                <p className="text-3xl font-bold text-gray-900">{challenges.length}</p>
-                <p className="text-sm text-gray-500">{challenges.length} Industry sponsored</p>
-              </div>
-              <div className="bg-purple-100 p-3 rounded-lg">
-                <Target className="text-purple-600" size={24} />
-              </div>
-            </div>
-          </div>
-
-          <div className="bg-white rounded-xl p-6 shadow-sm border">
-            <div className="flex items-center justify-between mb-4">
-              <div>
-                <p className="text-sm text-gray-600 mb-1">Industry Partners</p>
-                <p className="text-3xl font-bold text-gray-900">47</p>
-                <p className="text-sm text-yellow-600">3 new this month</p>
-              </div>
-              <div className="bg-yellow-100 p-3 rounded-lg">
-                <Shield className="text-yellow-600" size={24} />
-              </div>
-            </div>
-          </div>
-
-          <div className="bg-white rounded-xl p-6 shadow-sm border">
-            <div className="flex items-center justify-between mb-4">
-              <div>
-                <p className="text-sm text-gray-600 mb-1">Avg. Engagement</p>
-                <p className="text-3xl font-bold text-gray-900">78%</p>
-                <p className="text-sm text-green-600">+5% improvement</p>
-              </div>
-              <div className="bg-green-100 p-3 rounded-lg">
-                <TrendingUp className="text-green-600" size={24} />
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div className="grid grid-cols-1 xl:grid-cols-3 gap-6 sm:gap-8">
+        <div className="flex flex-start xl:grid-cols-3 gap-10 sm:gap-8">
           {/* Challenge Management */}
-          <div className="xl:col-span-2">
-            <div className="bg-white rounded-xl shadow-sm border">
-              <div className="p-4 sm:p-6 border-b">
+          <div className="xl:col-span-2 ">
+            <div className="bg-white rounded-xl shadow-sm border-gray lg:w-200 sm:w-100">
+              <div className="p-4 sm:p-6">
                 <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between space-y-3 sm:space-y-0">
                   <h2 className="text-lg sm:text-xl font-semibold text-gray-900">Challenge Management</h2>
                   <button 
@@ -347,8 +231,8 @@ export default function TVETDashboard() {
             </div>
 
             {/* Industry Suggestions */}
-            <div className="bg-white rounded-xl shadow-sm border mt-6 sm:mt-8">
-              <div className="p-4 sm:p-6 border-b">
+            <div className="bg-white rounded-xl shadow-sm border-gray mt-6 sm:mt-8">
+              <div className="p-4 sm:p-6 ">
                 <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between space-y-2 sm:space-y-0">
                   <h2 className="text-lg sm:text-xl font-semibold text-gray-900">Industry Suggestions</h2>
                   <button 
@@ -382,11 +266,9 @@ export default function TVETDashboard() {
             </div>
           </div>
 
-          {/* Right Sidebar */}
-          <div className="space-y-6 sm:space-y-8">
-            {/* Engagement Analytics */}
-            <div className="bg-white rounded-xl shadow-sm border">
-              <div className="p-4 sm:p-6 border-b">
+          <div className="space-y-6 sm:space-y-8 flex flex-col w-full lg:w-800 md:w-400 sm:w-200">
+            <div className="bg-white rounded-xl shadow-sm border-gray lg:w-90">
+              <div className="p-4 sm:p-6 ">
                 <h2 className="text-lg sm:text-xl font-semibold text-gray-900">Engagement Analytics</h2>
               </div>
               <div className="p-4 sm:p-6">
@@ -413,9 +295,9 @@ export default function TVETDashboard() {
               </div>
             </div>
 
-            {/* Success Stories */}
-            <div className="bg-white rounded-xl shadow-sm border">
-              <div className="p-4 sm:p-6 border-b">
+            
+            <div className="bg-white rounded-xl shadow-sm border-gray">
+              <div className="p-4 sm:p-6 ">
                 <h2 className="text-lg sm:text-xl font-semibold text-gray-900">Success Stories</h2>
               </div>
               <div className="p-4 sm:p-6 space-y-4">
@@ -429,9 +311,9 @@ export default function TVETDashboard() {
               </div>
             </div>
 
-            {/* Quick Actions */}
-            <div className="bg-white rounded-xl shadow-sm border">
-              <div className="p-4 sm:p-6 border-b">
+        
+            <div className="bg-white rounded-xl shadow-sm border-gray">
+              <div className="p-4 sm:p-6 ">
                 <h2 className="text-lg sm:text-xl font-semibold text-gray-900">Quick Actions</h2>
               </div>
               <div className="p-4 sm:p-6 space-y-3">
@@ -617,7 +499,7 @@ export default function TVETDashboard() {
 
       {/* Generate Report Modal */}
       {showReport && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
+        <div className="fixed inset-0 bg-black/50 bg-opacity-50 flex items-center justify-center z-50 p-4">
           <div className="bg-white rounded-xl p-4 sm:p-6 max-w-2xl w-full max-h-[90vh] overflow-y-auto">
             <div className="flex justify-between items-center mb-4">
               <h2 className="text-lg sm:text-xl font-bold text-gray-900">Ecosystem Health Report</h2>
