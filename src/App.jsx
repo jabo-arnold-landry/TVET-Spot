@@ -1,7 +1,12 @@
+import React from 'react';
+import Navbar from './components/Navbar';
+import Welcome  from './components/Welcome';
 function App() {
   return (
     <>
-      <h1 className="bg-green-400 text-center text-white">Tvet Bridge</h1>
+      <Navbar />
+      <Welcome /> 
+     
     </>
   );
 }
