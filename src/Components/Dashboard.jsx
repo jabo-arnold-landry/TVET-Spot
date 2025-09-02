@@ -127,7 +127,7 @@ export default function TVETDashboard() {
   };
 
   const ChallengeModal = ({ challenge, onClose }) => (
-    <div className="fixed inset-0 bg-black/50  lg:flex md:flex-row items-center justify-center z-50 p-4 ">
+    <div className="fixed inset-0 bg-black/50  grid lg:grid md:grid-row-3 sm:grid--4 items-center justify-center z-50 p-4 ">
       <div className="bg-white rounded-xl p-4 sm:p-6 max-w-2xl w-full max-h-[90vh] overflow-y-auto border">
         <div className="flex justify-between items-center mb-4">
           <h2 className="text-lg sm:text-xl font-bold text-gray-900">Challenge Details</h2>
@@ -179,7 +179,7 @@ export default function TVETDashboard() {
 
       <div className="p-4 sm:p-6">       
 
-        <div className="flex flex-start xl:grid-cols-3 gap-10 sm:gap-8">
+        <div className="flex flex-col sm:flex-col md:flex-row gap-6 sm:gap-6 md:gap-10">
           {/* Challenge Management */}
           <div className="xl:col-span-2 ">
             <div className="bg-white rounded-xl shadow-sm border-gray lg:w-200 sm:w-100">
@@ -346,7 +346,7 @@ export default function TVETDashboard() {
 
       {/* Create Challenge Modal */}
       {showCreateChallenge && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
+        <div className="fixed inset-0 bg-black/50 bg-opacity-50 flex items-center justify-center z-50 p-4">
           <div className="bg-white rounded-xl p-4 sm:p-6 max-w-md w-full max-h-[90vh] overflow-y-auto">
             <div className="flex justify-between items-center mb-4">
               <h2 className="text-lg sm:text-xl font-bold text-gray-900">Create New Challenge</h2>
@@ -422,7 +422,7 @@ export default function TVETDashboard() {
 
       {/* Create Success Story Modal */}
       {showCreateSuccessStory && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
+        <div className="fixed inset-0 bg-black/50 bg-opacity-50 flex items-center justify-center z-50 p-4">
           <div className="bg-white rounded-xl p-4 sm:p-6 max-w-md w-full max-h-[90vh] overflow-y-auto">
             <div className="flex justify-between items-center mb-4">
               <h2 className="text-lg sm:text-xl font-bold text-gray-900">Publish Success Story</h2>
@@ -566,7 +566,7 @@ export default function TVETDashboard() {
 
       {/* View All Suggestions Modal */}
       {showAllSuggestions && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
+        <div className="fixed inset-0 bg-black/50 bg-opacity-50 flex items-center justify-center z-50 p-4">
           <div className="bg-white rounded-xl p-4 sm:p-6 max-w-4xl w-full max-h-[90vh] overflow-y-auto">
             <div className="flex justify-between items-center mb-4">
               <h2 className="text-lg sm:text-xl font-bold text-gray-900">All Industry Suggestions</h2>
