@@ -131,7 +131,7 @@ const ChallengesSection = () => {
                 <p className="text-gray-600 mb-4">{challenge.description}</p>
 
                 {/* Challenge Details */}
-                <div className="flex items-center gap-6 text-sm text-gray-500 mb-4">
+                <div className="flex items-center gap-6 text-sm text-gray-500 mb-4 sm: flex-col md:flex-row">
                   <div className="flex items-center gap-1">
                     <Award className="w-4 h-4 text-green-500" />
                     <span className="text-green-600 font-medium">
@@ -154,7 +154,7 @@ const ChallengesSection = () => {
                 className={`px-6 py-2 rounded-lg font-medium transition-colors whitespace-nowrap ${
                   isJoined(challenge.id)
                     ? "bg-gray-400 text-white cursor-not-allowed"
-                    : "bg-green-500 hover:bg-green-600 text-white"
+                    : "bg-green-500 hover:bg-green-600 text-white "
                 } ms:mr-110 md:mt-0 mt-4`}
                 disabled={isJoined(challenge.id)}
               >
