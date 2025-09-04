@@ -11,6 +11,8 @@ const hackathon = [
   },
 ];
 import { gettingItems } from "../indexBD";
+import Microlink from "@microlink/react";
+
 function Profile() {
   const [linkPreview, setLinkPreview] = useState([]);
   const [activeTab, setActiveTab] = useState(false);
@@ -74,6 +76,19 @@ function Profile() {
   );
 }
 function LinkPreview() {
-  return <h3>links goes here</h3>;
+  return (
+    <Microlink
+      url="https://www.youtube.com/watch?v=twDtPs5NCjA"
+      contrast
+      autoPlay
+      media="video"
+      setData={(data) => ({
+        ...data,
+        title: "helloword",
+        description: "fjdkfsfsdlfsdfklsdfsdkfsdf",
+        image: { url: "https://i.imgur.com/1FyFxlk.jpg" },
+      })}
+    />
+  );
 }
 export default Profile;
