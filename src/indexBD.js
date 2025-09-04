@@ -15,7 +15,7 @@ async function initDB() {
     };
   });
 }
-async function gettingItems() {
+export async function gettingItems() {
   let db = await initDB();
   return new Promise((resolve, reject) => {
     const tx = db.transaction("port", "readonly");
