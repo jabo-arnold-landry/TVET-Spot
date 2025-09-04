@@ -6,12 +6,24 @@ const hackathon = [
     description:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima nulla magnam blanditiis, numquam autem maxime asperiores. Illum voluptatibus fugit quasi et perspiciatis fugiat nulla illo, quod cupiditate tempora ipsa. Soluta beatae aperiam quasi exercitationem blanditiis consequatur nobis voluptatum, fugit ut sit quia ad? Nobis, ipsa magnam nihil mollitia illo voluptate.",
     tags: ["no", "yet", "well"],
-    joinedStudent: 23,
+    participants: 23,
     joinedDate: "11-23-2021",
+    sponsor: "me",
+  },
+  {
+    id: 2,
+    title: "Hello Africa",
+    description:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima nulla magnam blanditiis, numquam autem maxime asperiores. Illum voluptatibus fugit quasi et perspiciatis fugiat nulla illo, quod cupiditate tempora ipsa. Soluta beatae aperiam quasi exercitationem blanditiis consequatur nobis voluptatum, fugit ut sit quia ad? Nobis, ipsa magnam nihil mollitia illo voluptate.",
+    tags: ["no", "yet", "well"],
+    participants: 23,
+    joinedDate: "11-23-2021",
+    sponsor: "me",
   },
 ];
 import { gettingItems } from "../indexBD";
 import Microlink from "@microlink/react";
+import ChallengesCard from "../components/ChallengesCard";
 
 function Profile() {
   const [linkPreview, setLinkPreview] = useState([]);
@@ -40,35 +52,11 @@ function Profile() {
           <span id="showcase-section">showcase</span>
           <span id="hackathon-section">hackathon</span>
         </div>
-        <article className="flex justify-start">
+        <article className="grid gap-2">
           {!activeTab ? (
             <LinkPreview />
           ) : (
-            hackathon.map((element) => {
-              const {
-                id,
-                title,
-                description,
-                tags,
-                joinedStudent,
-                joinedDate,
-              } = element;
-              return (
-                <>
-                  <div key={id}>
-                    <strong>{title}</strong>
-                    <p>{description}</p>
-                    <ul className="tags">
-                      <p>{tags.join(",")}</p>
-                    </ul>
-                    <div className="card-footer">
-                      <p>{joinedDate}</p>
-                      <p>{joinedStudent}</p>
-                    </div>
-                  </div>
-                </>
-              );
-            })
+            <ChallengesCard challenges={hackathon} />
           )}
         </article>
       </main>
