@@ -110,9 +110,8 @@ const TopTalentSection = () => {
   ];
 
   return (
-    <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6 max-h-[250px] overflow-y-auto ">
-      {/* Header */}
-      <div className="flex items-center justify-between mb-6 ">
+    <>
+      <div className="flex items-center justify-between ">
         <h2 className="text-xl font-semibold text-gray-900">Top Talent</h2>
 
         {/* Field Selector Dropdown */}
@@ -148,73 +147,76 @@ const TopTalentSection = () => {
           )}
         </div>
       </div>
+      <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6 max-h-[250px] overflow-y-auto ">
+        {/* Header */}
 
-      {/* Rankings Table */}
-      <div className="overflow-x-auto">
-        <table className="w-full">
-          <thead>
-            <tr className="border-b border-gray-200 bg-gray-50 sticky">
-              <th className="text-left py-3 px-2 text-sm font-medium text-gray-600">
-                Rank
-              </th>
-              <th className="text-left py-3 px-2 text-sm font-medium text-gray-600">
-                Student
-              </th>
-              <th className="text-left py-3 px-2 text-sm font-medium text-gray-600">
-                Field
-              </th>
-              <th className="text-left py-3 px-2 text-sm font-medium text-gray-600">
-                Points
-              </th>
-              <th className="text-left py-3 px-2 text-sm font-medium text-gray-600">
-                Badge
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-            {sampleStudents.map((student, index) => (
-              <tr
-                key={student.rank}
-                className="border-b border-gray-100 hover:bg-gray-50"
-              >
-                <td className="py-4 px-2 text-sm font-medium text-gray-900">
-                  {student.rank}
-                </td>
-                <td className="py-4 px-2">
-                  <div className="flex items-center">
-                    <div className="w-8 h-8 rounded-full bg-green-600 flex items-center justify-center text-white text-xs font-medium mr-3">
-                      {student.initials}
-                    </div>
-                    <div>
-                      <div className="text-sm font-medium text-gray-900">
-                        {student.name}
+        {/* Rankings Table */}
+        <div className="overflow-x-auto">
+          <table className="w-full">
+            <thead>
+              <tr className="border-b border-gray-200 bg-gray-50 sticky">
+                <th className="text-left py-3 px-2 text-sm font-medium text-gray-600">
+                  Rank
+                </th>
+                <th className="text-left py-3 px-2 text-sm font-medium text-gray-600">
+                  Student
+                </th>
+                <th className="text-left py-3 px-2 text-sm font-medium text-gray-600">
+                  Field
+                </th>
+                <th className="text-left py-3 px-2 text-sm font-medium text-gray-600">
+                  Points
+                </th>
+                <th className="text-left py-3 px-2 text-sm font-medium text-gray-600">
+                  Badge
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              {sampleStudents.map((student, index) => (
+                <tr
+                  key={student.rank}
+                  className="border-b border-gray-100 hover:bg-gray-50"
+                >
+                  <td className="py-4 px-2 text-sm font-medium text-gray-900">
+                    {student.rank}
+                  </td>
+                  <td className="py-4 px-2">
+                    <div className="flex items-center">
+                      <div className="w-8 h-8 rounded-full bg-green-600 flex items-center justify-center text-white text-xs font-medium mr-3">
+                        {student.initials}
+                      </div>
+                      <div>
+                        <div className="text-sm font-medium text-gray-900">
+                          {student.name}
+                        </div>
                       </div>
                     </div>
-                  </div>
-                </td>
-                <td className="py-4 px-2">
-                  <span
-                    className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium text-white ${student.fieldColor}`}
-                  >
-                    {student.field}
-                  </span>
-                </td>
-                <td className="py-4 px-2 text-sm text-gray-900 font-medium">
-                  {student.points.toLocaleString()}
-                </td>
-                <td className="py-4 px-2">
-                  <div
-                    className={`w-6 h-6 rounded-full ${student.badgeColor} flex items-center justify-center text-white text-xs`}
-                  >
-                    {student.badge}
-                  </div>
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
+                  </td>
+                  <td className="py-4 px-2">
+                    <span
+                      className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium text-white ${student.fieldColor}`}
+                    >
+                      {student.field}
+                    </span>
+                  </td>
+                  <td className="py-4 px-2 text-sm text-gray-900 font-medium">
+                    {student.points.toLocaleString()}
+                  </td>
+                  <td className="py-4 px-2">
+                    <div
+                      className={`w-6 h-6 rounded-full ${student.badgeColor} flex items-center justify-center text-white text-xs`}
+                    >
+                      {student.badge}
+                    </div>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 

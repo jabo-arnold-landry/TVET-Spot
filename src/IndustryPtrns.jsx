@@ -11,7 +11,7 @@ const IndustryPage = () => {
           Industry Partnership
         </h1>
         <p className="mt-2 text-blue-900">
-          Discover talents and create a meaningful opportunities
+          Discover Talents And Create A Meaningful |Opportunities
         </p>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4 p-4">

@@ -2,13 +2,15 @@ import React, { useState } from "react";
 import { ChevronDown, Calendar } from "lucide-react";
 
 const CreateNewHackathon = () => {
-  const [formData, setFormData] = useState({
+  const initialState = {
     title: "",
     description: "",
     field: "Engineering",
     pointsReward: "50",
-    dueDate: "08/28/2025",
-  });
+    dueDate: "",
+  };
+
+  const [formData, setFormData] = useState(initialState);
   const [isFieldDropdownOpen, setIsFieldDropdownOpen] = useState(false);
 
   const fields = [
@@ -38,20 +40,23 @@ const CreateNewHackathon = () => {
     setIsFieldDropdownOpen(false);
   };
 
-  const handleSubmit = () => {
+  const handleSubmit = (e) => {
+    e.preventDefault();
     console.log("Creating hackathon:", formData);
-    // Handle form submission here
+
     alert("Hackathon created successfully!");
+
+    // reset form
+    setFormData(initialState);
   };
 
   return (
     <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
-      {/* Header */}
       <h2 className="text-xl font-semibold text-gray-900 mb-6">
         Create New Hackathon
       </h2>
 
-      <div className="space-y-6">
+      <form onSubmit={handleSubmit} className="space-y-6">
         {/* Hackathon Title */}
         <div>
           <label
@@ -67,7 +72,7 @@ const CreateNewHackathon = () => {
             value={formData.title}
             onChange={handleInputChange}
             placeholder="Enter hackathon title..."
-            className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-green-500"
+            className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm"
           />
         </div>
 
@@ -86,21 +91,21 @@ const CreateNewHackathon = () => {
             onChange={handleInputChange}
             placeholder="Describe the hackathon objectives and requirements..."
             rows={4}
-            className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-green-500 resize-none"
+            className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm resize-none"
           />
         </div>
 
-        {/* Field and Points Reward Row */}
+        {/* Field + Points */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {/* Field */}
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-2">
               Field
             </label>
             <div className="relative">
               <button
+                type="button"
                 onClick={() => setIsFieldDropdownOpen(!isFieldDropdownOpen)}
-                className="w-full flex items-center justify-between bg-white border border-gray-300 rounded-md px-3 py-2 text-sm text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-green-500"
+                className="w-full flex items-center justify-between bg-white border border-gray-300 rounded-md px-3 py-2 text-sm"
               >
                 <span>{formData.field}</span>
                 <ChevronDown
@@ -115,8 +120,9 @@ const CreateNewHackathon = () => {
                   {fields.map((field) => (
                     <button
                       key={field}
+                      type="button"
                       onClick={() => handleFieldSelect(field)}
-                      className={`w-full text-left px-3 py-2 text-sm hover:bg-gray-50 first:rounded-t-md last:rounded-b-md ${
+                      className={`w-full text-left px-3 py-2 text-sm hover:bg-gray-50 ${
                         formData.field === field
                           ? "bg-green-50 text-green-700"
                           : "text-gray-700"
@@ -130,7 +136,6 @@ const CreateNewHackathon = () => {
             </div>
           </div>
 
-          {/* Points Reward */}
           <div>
             <label
               htmlFor="pointsReward"
@@ -145,7 +150,7 @@ const CreateNewHackathon = () => {
               value={formData.pointsReward}
               onChange={handleInputChange}
               min="1"
-              className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-green-500"
+              className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm"
             />
           </div>
         </div>
@@ -165,20 +170,20 @@ const CreateNewHackathon = () => {
               name="dueDate"
               value={formData.dueDate}
               onChange={handleInputChange}
-              className="w-full px-3 py-2 pr-10 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-green-500"
+              className="w-full px-3 py-2 pr-10 border border-gray-300 rounded-md shadow-sm"
             />
-            <Calendar className="absolute right-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-gray-400 pointer-events-none" />
+            <Calendar className="absolute right-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-gray-400" />
           </div>
         </div>
 
-        {/* Create Button */}
+        {/* Submit */}
         <button
-          onClick={handleSubmit}
-          className="w-full bg-green-600 text-white py-3 px-4 rounded-md font-medium hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 transition-colors"
+          type="submit"
+          className="w-full bg-green-600 text-white py-3 px-4 rounded-md font-medium hover:bg-green-700"
         >
           Create Hackathon
         </button>
-      </div>
+      </form>
     </div>
   );
 };
