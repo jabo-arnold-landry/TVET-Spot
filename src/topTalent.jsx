@@ -51,7 +51,7 @@ const TopTalentSection = () => {
       rank: 3,
       initials: "MJ",
       name: "Maria Johnson",
-      field: "Healthcare",
+      field: "Mechatronics",
       fieldColor: "bg-green-600",
       points: 1520,
       badge: "○",
@@ -61,7 +61,7 @@ const TopTalentSection = () => {
       rank: 4,
       initials: "AK",
       name: "Alex Kumar",
-      field: "Business",
+      field: "Robotics",
       fieldColor: "bg-purple-600",
       points: 1456,
       badge: "○",
@@ -71,7 +71,7 @@ const TopTalentSection = () => {
       rank: 5,
       initials: "LT",
       name: "Lisa Thompson",
-      field: "Tourism",
+      field: "Fashion",
       fieldColor: "bg-pink-600",
       points: 1398,
       badge: "○",
@@ -91,7 +91,7 @@ const TopTalentSection = () => {
       rank: 7,
       initials: "RB",
       name: "Rachel Brown",
-      field: "Healthcare",
+      field: "Biomedical",
       fieldColor: "bg-green-600",
       points: 1285,
       badge: "○",
@@ -110,9 +110,9 @@ const TopTalentSection = () => {
   ];
 
   return (
-    <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6 max-h-[400px] overflow-y-auto ">
+    <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6 max-h-[250px] overflow-y-auto ">
       {/* Header */}
-      <div className="flex items-center justify-between mb-6">
+      <div className="flex items-center justify-between mb-6 ">
         <h2 className="text-xl font-semibold text-gray-900">Top Talent</h2>
 
         {/* Field Selector Dropdown */}
