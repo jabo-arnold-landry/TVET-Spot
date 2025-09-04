@@ -5,11 +5,39 @@ import {
   ChartLine,
 } from "lucide-react";
 import Card from "../components/Card";
+import Leaderboard from "../components/Leaderboard";
 import { settingItems } from "../indexBD";
-
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
+
 export default function MyGrowthSection() {
   const [showPopup, setShowPopup] = useState(false);
+  const [showLeaderboard, setShowLeaderboard] = useState(false);
+
+  const handleViewLeaderboard = () => {
+    setShowLeaderboard(true);
+  };
+
+  // If leaderboard is shown, render the full Leaderboard component
+  if (showLeaderboard) {
+    return (
+      <div>
+        {/* Back button */}
+        <div className="p-4">
+          <button 
+            onClick={() => setShowLeaderboard(false)}
+            className="text-white bg-primary rounded px-4 py-2 mb-4"
+          >
+            ← Back to Growth
+          </button>
+        </div>
+        {/* Render the full Leaderboard component */}
+        <Leaderboard />
+      </div>
+    );
+  }
+
   return (
     <>
       <div className="grid gap-3 bg-white-solid rounded-md m-4 px-2 py-1 border border-gray-200">
@@ -50,15 +78,13 @@ export default function MyGrowthSection() {
         </Card>
         <Card>
           <ChartLine />
-          <button>view leaderboard</button>
+          <button onClick={handleViewLeaderboard}>view leaderboard</button>
         </Card>
         <Showcase isOpen={showPopup} onClose={() => setShowPopup(false)} />
       </div>
     </>
   );
 }
-
-import { useState } from "react";
 
 function Showcase({ isOpen, onClose }) {
   const [link, setLink] = useState("");
