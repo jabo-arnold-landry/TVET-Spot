@@ -1,7 +1,12 @@
+import TopTalentSection from "./topTalent";
+import CreateNewHackathon from "./HackthonCreation";
+import IndustryPage from "./IndustryPtrns";
 function App() {
   return (
     <>
-      <h1 className="bg-green-400 text-center text-white">Tvet Bridge</h1>
+      <IndustryPage />
+      <TopTalentSection />
+      <CreateNewHackathon />
     </>
   );
 }
