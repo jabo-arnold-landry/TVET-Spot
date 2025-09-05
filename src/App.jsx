@@ -10,36 +10,32 @@ import Leaderboard from "./components/Leaderboard"; // Import your Leaderboard c
 function App() {
   return (
     <>
-      {/* <Navbar />
-      <Welcome />
-      <Growth /> */}
-      <Profile />
+      <Router>
+        <Routes>
+          {/* Main page route */}
+          <Route
+            path="/"
+            element={
+              <>
+                <Navbar />
+                <Welcome />
+                <Growth />
+              </>
+            }
+          />
+          {/* Leaderboard route */}
+          <Route
+            path="/leaderboard"
+            element={
+              <>
+                <Navbar />
+                <Leaderboard />
+              </>
+            }
+          />
+        </Routes>
+      </Router>
     </>
-    <Router>
-      <Routes>
-        {/* Main page route */}
-        <Route 
-          path="/" 
-          element={
-            <>
-              <Navbar />
-              <Welcome />
-              <Growth />
-            </>
-          } 
-        />
-        {/* Leaderboard route */}
-        <Route 
-          path="/leaderboard" 
-          element={
-            <>
-              <Navbar />
-              <Leaderboard />
-            </>
-          } 
-        />
-      </Routes>
-    </Router>
   );
 }
 
