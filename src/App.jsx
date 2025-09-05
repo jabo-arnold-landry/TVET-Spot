@@ -3,11 +3,11 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Welcome from "./components/Welcome";
 import Growth from "./growth-section";
-// import Dashboard from "./Components/Dashboard";
+import Dashboard from "./Components/Dashboard";
 import Leaderboard from "./components/Leaderboard"; // Import your Leaderboard component
+import Profile from "./pages/Profile"; // Import Profile component if needed
 
 import IndustryPage from "./IndustryPtrns";
-import Dashboard from "./Dashboard";
 
 function App() {
   return (
@@ -37,7 +37,6 @@ function App() {
           />
         </Routes>
       </Router>
-      <IndustryPage />
     </>
   );
 }

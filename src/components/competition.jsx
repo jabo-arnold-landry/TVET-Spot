@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import ChallengeSection from "./stud-challenges";
-import HackathonsSection from "./stud-hackathon";
+import ChallengeSection from "../stud-challenges";
+import HackathonsSection from "../stud-hackathon";
 
 const TabComponent = () => {
   const [activeTab, setActiveTab] = useState("A");

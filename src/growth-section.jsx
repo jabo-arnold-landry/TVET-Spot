@@ -1,4 +1,4 @@
-import TabComponent from "./competition";
+import TabComponent from "./Components/competition";
 import MyGrowthSection from "./pages/MyGrowthSection";
 function Growth() {
   return (
