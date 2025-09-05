@@ -17,7 +17,7 @@ import {
   Award,
   CheckCircle,
 } from "lucide-react";
-import Navbar from "./Navbar";
+import Navbar from "../components/Navbar";
 import MetricsCards from "../tvetAnalysis";
 export default function TVETDashboard() {
   const [showCreateChallenge, setShowCreateChallenge] = useState(false);

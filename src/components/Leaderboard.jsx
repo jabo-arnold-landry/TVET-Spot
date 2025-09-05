@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Navbar from "../components/Navbar";
 const Leaderboard = () => {
   const [activeFilter, setActiveFilter] = useState("All Fields");
   const [activeScope, setActiveScope] = useState("Global");
@@ -63,6 +64,7 @@ const Leaderboard = () => {
 
   return (
     <>
+      <Navbar />
       <div className="bg-gray-50 min-h-screen">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
           {/* Header */}

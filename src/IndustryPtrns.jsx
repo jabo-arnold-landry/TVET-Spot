@@ -3,7 +3,7 @@ import RecentActivity from "./Components/RecentActivity";
 import CurriculumSuggestion from "./Components/curriculum";
 import TopTalentSection from "./topTalent";
 import CreateNewHackathon from "./HackthonCreation";
-import Navbar from "./Components/Navbar";
+import Navbar from "./components/Navbar";
 const IndustryPage = () => {
   return (
     <>

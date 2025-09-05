@@ -15,8 +15,8 @@ const Navbar = () => {
 
   const navigationItems = [
     { name: "Dashboard", active: true },
-    { name: "Profile", active: false },
-    { name: "Rankings", active: false },
+    { name: "Profile", active: false, to: "/profile" },
+    { name: "Rankings", active: false, to: "/leader-board" },
   ];
 
   const dropdownItems = [
@@ -53,7 +53,8 @@ const Navbar = () => {
               {/* Desktop Navigation Links */}
               <div className="hidden lg:flex items-center space-x-1 ml-8 xl:ml-12">
                 {navigationItems.map((item) => (
-                  <button
+                  <NavLink
+                    to={item.to || "#"}
                     key={item.name}
                     className={`px-4 py-2 rounded-lg font-medium text-sm xl:text-base transition-colors ${
                       item.active
@@ -62,7 +63,7 @@ const Navbar = () => {
                     }`}
                   >
                     {item.name}
-                  </button>
+                  </NavLink>
                 ))}
               </div>
             </div>

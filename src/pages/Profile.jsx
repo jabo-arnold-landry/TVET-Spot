@@ -6,6 +6,7 @@ import ChallengesCard from "../components/ChallengesCard";
 import RecentNotification from "../components/RecentNotification";
 import CardStats from "../components/CardStats";
 import { Award } from "lucide-react";
+import Navbar from "../components/Navbar";
 const hackathon = [
   {
     id: 1,
@@ -68,6 +69,7 @@ function Profile() {
   }
   return (
     <>
+      <Navbar />
       <strong className="text-xl font-bold">Growth Profile</strong>
       <p className="my-2 capitalize text-azure-34 text-sm">
         track your learning journey and achievements

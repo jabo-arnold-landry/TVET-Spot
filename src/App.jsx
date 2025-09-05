@@ -1,6 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Navbar from "./Components/Navbar";
+import Navbar from "./components/Navbar";
 import Dashboard from "./Components/Dashboard";
 import Leaderboard from "./components/Leaderboard"; // Import your Leaderboard component
 import Profile from "./pages/Profile"; // Import Profile component if needed
@@ -18,6 +18,7 @@ function App() {
           <Route path="tvet-section" element={<Dashboard />} />
           <Route path="private-section" element={<IndustryPage />} />
           <Route path="leader-board" element={<Leaderboard />} />
+          <Route path="profile" element={<Profile />} />
         </Routes>
       </Router>
     </>
