@@ -1,3 +1,4 @@
+import TVETSpotLanding from "./Landing";
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
@@ -11,6 +12,7 @@ import Growth from "./growth-section";
 function App() {
   return (
     <>
+      <TVETSpotLanding />
       <Router>
         <Routes>
           {/* Main page route */}
