@@ -42,7 +42,6 @@ const CreateNewHackathon = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("Creating hackathon:", formData);
 
     alert("Hackathon created successfully!");
 
