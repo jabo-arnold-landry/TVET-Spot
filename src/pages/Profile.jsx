@@ -34,8 +34,20 @@ const recentUpdates = [
     title: "completed a web basics",
     description: "earned 10 points . 2days ago",
   },
+  {
+    achievement: <Award />,
+    title: "completed a web basics",
+    description: "earned 10 points . 2days ago",
+  },
 ];
-
+const studentStats = [
+  {
+    totalPoints: 12,
+    ChallengesCompleted: 2,
+    Hackathons: 2,
+    ProjectShowcased: 3,
+  },
+];
 function Profile() {
   const [linkPreview, setLinkPreview] = useState([]);
   const [activeTab, setActiveTab] = useState(false);
@@ -56,11 +68,13 @@ function Profile() {
   }
   return (
     <>
-      <strong>Growth Profile</strong>
-      <p>track your learning journey and achievements</p>
+      <strong className="text-xl font-bold">Growth Profile</strong>
+      <p className="my-2 capitalize text-azure-34 text-sm">
+        track your learning journey and achievements
+      </p>
 
       <main onClick={SetHackathonsTab} className="grid gap-3 col-span-2">
-        <div className="flex gap-10 cursor-pointer">
+        <div className="flex gap-10 cursor-pointer my-2">
           <button
             id="showcase-section"
             className={
@@ -82,14 +96,14 @@ function Profile() {
             hackathon
           </button>
         </div>
-        <section className="grid grid-cols-1 sm:grid-cols-[2fr_1fr] gap-4">
-          <article className="grid gap-2">
+        <section className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+          <article className="grid gap-2 sm:col-span-2">
             {!activeTab ? (
               <LinkPreview />
             ) : (
               <ChallengesCard challenges={hackathon} />
             )}
-            <section className="bg-white px-2.5 py-0.5 rounded">
+            <section className="bg-white px-2.5 py-0.5 rounded grid gap-1.5">
               <strong>Recent Notification</strong>
               <RecentNotification notifications={recentUpdates} />
             </section>

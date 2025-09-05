@@ -8,7 +8,10 @@ function RecentNotification({ notifications }) {
         notifications.map((notification, index) => {
           const { achivement, title, description } = notification;
           return (
-            <div className="flex items-center bg-gray-200" key={index}>
+            <div
+              className="flex items-center bg-gray-200 rounded-md"
+              key={index}
+            >
               <Award className="size-10" />
               <div>
                 <strong>{title}</strong>

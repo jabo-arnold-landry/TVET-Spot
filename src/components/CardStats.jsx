@@ -3,7 +3,7 @@ import { Award } from "lucide-react";
 function CardStats() {
   return (
     <>
-      <div className="bg-white px-3 py-5 rounded">
+      <div className="bg-white px-3 py-2.5 rounded self-center">
         <strong className="">Badge collection</strong>
         <div className="flex justify-between items-center">
           <span className="grid gap-1.5">
@@ -20,26 +20,26 @@ function CardStats() {
           </span>
         </div>
       </div>
-      <div className="bg-white px-3 py-5 rounded">
+      <div className="bg-white px-3 py-2.5 rounded self-center">
         <strong>key metrics</strong>
-        <section className="flex gap-2 justify-between">
+        <section className="flex gap-2 justify-between text-azure-34">
           <h4>total points</h4>
           <p>343</p>
         </section>
-        <section className="flex justify-between">
-          <h4>total points</h4>
-          <p>343</p>
+        <section className="flex justify-between text-azure-34">
+          <h4>Challenges completed</h4>
+          <p>3</p>
         </section>
-        <section className="flex justify-between">
-          <h4>total points</h4>
-          <p>343</p>
+        <section className="flex justify-between text-azure-34">
+          <h4>Hackathons</h4>
+          <p>2</p>
         </section>
-        <section className="flex justify-between">
-          <h4>total points</h4>
-          <p>343</p>
+        <section className="flex justify-between text-azure-34">
+          <h4>Project showcased</h4>
+          <p>3</p>
         </section>
       </div>
-      <div className="bg-white px-3 py-5 rounded relative">
+      <div className="bg-white px-3 py-2.5 rounded self-center">
         <strong>Next milestone</strong>
         <div className="grid place-items-center">
           <Award className="size-10 bg-orange-500 text-white px-3 py-1 rounded-full" />
@@ -48,7 +48,7 @@ function CardStats() {
             conglatulations
           </p>
         </div>
-        <div className="bg-red-400 absolute"></div>
+        <div className="border-4 rounded-full border-green-400"></div>
       </div>
     </>
   );
