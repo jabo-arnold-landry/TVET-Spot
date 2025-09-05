@@ -23,6 +23,7 @@ const hackathon = [
 ];
 import { gettingItems } from "../indexBD";
 import Microlink from "@microlink/react";
+import clsx from "clsx";
 import ChallengesCard from "../components/ChallengesCard";
 
 function Profile() {
@@ -49,8 +50,26 @@ function Profile() {
       <p>track your learning journey and achievements</p>
       <main onClick={SetHackathonsTab}>
         <div className="flex gap-10 cursor-pointer">
-          <span id="showcase-section">showcase</span>
-          <span id="hackathon-section">hackathon</span>
+          <span
+            id="showcase-section"
+            className={
+              !activeTab
+                ? "border-b-8 border-b-primary w-fit text-primary font-bold"
+                : "font-light text-azure-34 capitalize mb-3"
+            }
+          >
+            showcase
+          </span>
+          <span
+            id="hackathon-section"
+            className={
+              activeTab
+                ? "border-b-8 border-b-primary w-fit text-primary font-bold"
+                : "font-light text-azure-34 capitalize mb-3"
+            }
+          >
+            hackathon
+          </span>
         </div>
         <article className="grid gap-2">
           {!activeTab ? (
