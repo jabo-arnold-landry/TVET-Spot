@@ -4,6 +4,7 @@ import Microlink from "@microlink/react";
 import clsx from "clsx";
 import ChallengesCard from "../components/ChallengesCard";
 import RecentNotification from "../components/RecentNotification";
+import CardStats from "../components/CardStats";
 import { Award } from "lucide-react";
 const hackathon = [
   {
@@ -57,41 +58,46 @@ function Profile() {
     <>
       <strong>Growth Profile</strong>
       <p>track your learning journey and achievements</p>
-      <main onClick={SetHackathonsTab} className="grid gap-3">
-        <div className="flex gap-10 cursor-pointer">
-          <span
-            id="showcase-section"
-            className={
-              !activeTab
-                ? "border-b-8 border-b-primary w-fit text-primary font-bold"
-                : "font-light text-azure-34 capitalize mb-3"
-            }
-          >
-            showcase
-          </span>
-          <span
-            id="hackathon-section"
-            className={
-              activeTab
-                ? "border-b-8 border-b-primary w-fit text-primary font-bold"
-                : "font-light text-azure-34 capitalize mb-3"
-            }
-          >
-            hackathon
-          </span>
-        </div>
-        <article className="grid gap-2">
-          {!activeTab ? (
-            <LinkPreview />
-          ) : (
-            <ChallengesCard challenges={hackathon} />
-          )}
-        </article>
-        <section className="notifacation mx-3 col-span-full">
-          <strong>Recent Notification</strong>
-          <RecentNotification notifications={recentUpdates} />
-        </section>
-      </main>
+      <div className="grid gap-5 sm:grid-cols-3">
+        <main onClick={SetHackathonsTab} className="grid gap-3 col-span-2">
+          <div className="flex gap-10 cursor-pointer">
+            <span
+              id="showcase-section"
+              className={
+                !activeTab
+                  ? "border-b-8 border-b-primary w-fit text-primary font-bold"
+                  : "font-light text-azure-34 capitalize mb-3"
+              }
+            >
+              showcase
+            </span>
+            <span
+              id="hackathon-section"
+              className={
+                activeTab
+                  ? "border-b-8 border-b-primary w-fit text-primary font-bold"
+                  : "font-light text-azure-34 capitalize mb-3"
+              }
+            >
+              hackathon
+            </span>
+          </div>
+          <article className="grid gap-2">
+            {!activeTab ? (
+              <LinkPreview />
+            ) : (
+              <ChallengesCard challenges={hackathon} />
+            )}
+          </article>
+          <section className="notifacation mx-3 col-span-full">
+            <strong>Recent Notification</strong>
+            <RecentNotification notifications={recentUpdates} />
+          </section>
+        </main>
+        <aside>
+          <CardStats />
+        </aside>
+      </div>
     </>
   );
 }
