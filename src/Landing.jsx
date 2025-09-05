@@ -1,19 +1,13 @@
 import React, { useState } from "react";
 import { X, Users, Building2, GraduationCap, CheckCircle } from "lucide-react";
 import tvetSpotIcon from "./assets/tvetSpot.svg";
+import { NavLink } from "react-router-dom";
 
 const TVETSpotLanding = () => {
   const [showModal, setShowModal] = useState(false);
 
   const handleGetStarted = () => {
     setShowModal(true);
-  };
-
-  const handleUserTypeSelect = (userType) => {
-    console.log(`Selected user type: ${userType}`);
-    // Here you would typically navigate to the specific user dashboard
-    setShowModal(false);
-    alert(`Redirecting to ${userType} portal...`);
   };
 
   return (
@@ -181,8 +175,8 @@ const TVETSpotLanding = () => {
 
             <div className="grid md:grid-cols-3 gap-6">
               {/* Student Option */}
-              <button
-                onClick={() => handleUserTypeSelect("Student")}
+              <NavLink
+                to="/student-section"
                 className="group p-6 border-2 border-gray-200 rounded-xl hover:border-green-500 hover:bg-green-50 transition-all"
               >
                 <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mx-auto mb-4 group-hover:bg-green-200">
@@ -194,11 +188,11 @@ const TVETSpotLanding = () => {
                 <p className="text-sm text-gray-600">
                   Build skills and showcase talent
                 </p>
-              </button>
+              </NavLink>
 
               {/* Industry Partner Option */}
-              <button
-                onClick={() => handleUserTypeSelect("Industry Partner")}
+              <NavLink
+                to="/private-section"
                 className="group p-6 border-2 border-gray-200 rounded-xl hover:border-blue-500 hover:bg-blue-50 transition-all"
               >
                 <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mx-auto mb-4 group-hover:bg-blue-200">
@@ -210,11 +204,11 @@ const TVETSpotLanding = () => {
                 <p className="text-sm text-gray-600">
                   Discover talent and create challenges
                 </p>
-              </button>
+              </NavLink>
 
               {/* TVET Organization Option */}
-              <button
-                onClick={() => handleUserTypeSelect("TVET Organization")}
+              <NavLink
+                to="/tvet-section"
                 className="group p-6 border-2 border-gray-200 rounded-xl hover:border-yellow-500 hover:bg-yellow-50 transition-all"
               >
                 <div className="w-12 h-12 bg-yellow-100 rounded-lg flex items-center justify-center mx-auto mb-4 group-hover:bg-yellow-200">
@@ -226,7 +220,7 @@ const TVETSpotLanding = () => {
                 <p className="text-sm text-gray-600">
                   Monitor and manage programs
                 </p>
-              </button>
+              </NavLink>
             </div>
           </div>
         </div>

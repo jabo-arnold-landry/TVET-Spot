@@ -12,11 +12,11 @@ import Growth from "./growth-section";
 function App() {
   return (
     <>
-      <TVETSpotLanding />
       <Router>
         <Routes>
           {/* Main page route */}
-          <Route path="/" element={<Growth />} />
+          <Route path="/" element={<TVETSpotLanding />} />
+          <Route path="student-section" element={<Growth />} />
           <Route path="tvet-section" element={<Dashboard />} />
           <Route path="private-section" element={<IndustryPage />} />
           <Route path="leader-board" element={<Leaderboard />} />
