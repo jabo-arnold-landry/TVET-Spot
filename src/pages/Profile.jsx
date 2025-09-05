@@ -1,4 +1,10 @@
 import { useEffect, useState } from "react";
+import { gettingItems } from "../indexBD";
+import Microlink from "@microlink/react";
+import clsx from "clsx";
+import ChallengesCard from "../components/ChallengesCard";
+import RecentNotification from "../components/RecentNotification";
+import { Award } from "lucide-react";
 const hackathon = [
   {
     id: 1,
@@ -21,10 +27,13 @@ const hackathon = [
     sponsor: "me",
   },
 ];
-import { gettingItems } from "../indexBD";
-import Microlink from "@microlink/react";
-import clsx from "clsx";
-import ChallengesCard from "../components/ChallengesCard";
+const recentUpdates = [
+  {
+    achievement: <Award />,
+    title: "completed a web basics",
+    description: "earned 10 points . 2days ago",
+  },
+];
 
 function Profile() {
   const [linkPreview, setLinkPreview] = useState([]);
@@ -48,7 +57,7 @@ function Profile() {
     <>
       <strong>Growth Profile</strong>
       <p>track your learning journey and achievements</p>
-      <main onClick={SetHackathonsTab}>
+      <main onClick={SetHackathonsTab} className="grid gap-3">
         <div className="flex gap-10 cursor-pointer">
           <span
             id="showcase-section"
@@ -78,6 +87,10 @@ function Profile() {
             <ChallengesCard challenges={hackathon} />
           )}
         </article>
+        <section className="notifacation mx-3 col-span-full">
+          <strong>Recent Notification</strong>
+          <RecentNotification notifications={recentUpdates} />
+        </section>
       </main>
     </>
   );
