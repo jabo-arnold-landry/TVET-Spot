@@ -7,6 +7,8 @@ import Growth from "./growth-section";
 import Leaderboard from "./components/Leaderboard"; // Import your Leaderboard component
 
 import IndustryPage from "./IndustryPtrns";
+import Dashboard from "./Dashboard";
+
 function App() {
   return (
     <>
