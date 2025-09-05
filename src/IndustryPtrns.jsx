@@ -3,9 +3,11 @@ import RecentActivity from "./Components/RecentActivity";
 import CurriculumSuggestion from "./Components/curriculum";
 import TopTalentSection from "./topTalent";
 import CreateNewHackathon from "./HackthonCreation";
+import Navbar from "./Components/Navbar";
 const IndustryPage = () => {
   return (
     <>
+      <Navbar />
       <div className="p-6 rounded-lg">
         <h1 className="text-3xl font-bold text-gray-900">
           Industry Partnership

@@ -8,7 +8,7 @@ import Card from "../components/Card";
 import Leaderboard from "../components/Leaderboard";
 import { settingItems } from "../indexBD";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, NavLink } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 
 export default function MyGrowthSection() {
@@ -25,7 +25,7 @@ export default function MyGrowthSection() {
       <div>
         {/* Back button */}
         <div className="p-4">
-          <button 
+          <button
             onClick={() => setShowLeaderboard(false)}
             className="text-white bg-primary rounded px-4 py-2 mb-4"
           >
@@ -78,7 +78,7 @@ export default function MyGrowthSection() {
         </Card>
         <Card>
           <ChartLine />
-          <button onClick={handleViewLeaderboard}>view leaderboard</button>
+          <NavLink to="/leader-board">view leaderboard</NavLink>
         </Card>
         <Showcase isOpen={showPopup} onClose={() => setShowPopup(false)} />
       </div>
