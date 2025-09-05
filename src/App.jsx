@@ -7,6 +7,7 @@ import Profile from "./pages/Profile";
 import Dashboard from "./Components/Dashboard";
 import Leaderboard from "./components/Leaderboard"; // Import your Leaderboard component
 
+import IndustryPage from "./IndustryPtrns";
 function App() {
   return (
     <>
@@ -35,6 +36,7 @@ function App() {
           />
         </Routes>
       </Router>
+      <IndustryPage />
     </>
   );
 }
