@@ -62,7 +62,7 @@ const Navbar = () => {
               <div className="hidden lg:flex items-center space-x-1 ml-8 xl:ml-12">
                 <NavLink
                   to={rolecheck()}
-                  className="px-4 py-2 rounded-lg font-medium text-sm xl:text-base transition-colors text-gray-600 hover:text-gray-900 hover:bg-gray-50"
+                  className="px-4 py-2 rounded-lg font-medium text-sm xl:text-base transition-colors text-gray-600 hover:text-gray-900 hover:bg-gray-50 active"
                 >
                   Dashboard
                 </NavLink>
