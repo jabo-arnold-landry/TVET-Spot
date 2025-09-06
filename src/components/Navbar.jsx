@@ -53,7 +53,7 @@ const Navbar = () => {
                 </div>
                 <div className="flex flex-col">
                   <span className="text-lg lg:text-xl font-bold text-gray-900">
-                    TVET Bridge
+                    TVET Spot
                   </span>
                   <span className="text-xs text-gray-500 hidden sm:block -mt-1">
                     Connect • Grow • Succeed
