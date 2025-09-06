@@ -70,10 +70,13 @@ function Profile() {
   return (
     <>
       <Navbar />
-      <strong className="text-xl font-bold">Growth Profile</strong>
-      <p className="my-2 capitalize text-azure-34 text-sm">
-        track your learning journey and achievements
-      </p>
+      <div className="mx-5 my-7">
+        <strong className="text-3xl text-azure-34 font-bold">
+          Growth Profile
+        </strong>
+        <p className="my-2 capitalize text-azure-34 text-sm">
+          track your learning journey and achievements
+        </p>
 
         <main onClick={SetHackathonsTab} className="grid gap-3 col-span-2">
           <div className="flex gap-10 cursor-pointer my-2">
@@ -126,13 +129,11 @@ function LinkPreview() {
         url="https://www.youtube.com/watch?v=twDtPs5NCjA"
         autoPlay
         media="video"
-        size="small"
       />
       <Microlink
         url="https://www.youtube.com/watch?v=twDtPs5NCjA"
         autoPlay
         media="video"
-        size="small"
       />
     </>
   );
