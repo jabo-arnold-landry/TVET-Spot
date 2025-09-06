@@ -1,8 +1,8 @@
-import React, { useState } from "react";
-import { NavLink, Outlet } from "react-router-dom";
-import Welcome from "./Welcome";
-import Growth from "../growth-section";
+import React, { useState, useContext } from "react";
+import { Link, NavLink, Outlet } from "react-router-dom";
+import { roleContext } from "../ContextProvider";
 const Navbar = () => {
+  const { role, setRole } = useContext(roleContext);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -25,7 +25,15 @@ const Navbar = () => {
     "Notifications",
     "Help Center",
   ];
-
+  function rolecheck() {
+    if (role === "students") {
+      return "/student-section";
+    } else if (role === "TVET Board") {
+      return "/tvet-section";
+    } else {
+      return "private-section";
+    }
+  }
   return (
     <>
       <nav className="bg-white border-b border-gray-200 sticky top-0 z-40 shadow-sm">
@@ -52,19 +60,26 @@ const Navbar = () => {
 
               {/* Desktop Navigation Links */}
               <div className="hidden lg:flex items-center space-x-1 ml-8 xl:ml-12">
-                {navigationItems.map((item) => (
+                <NavLink
+                  to={rolecheck()}
+                  className="px-4 py-2 rounded-lg font-medium text-sm xl:text-base transition-colors text-gray-600 hover:text-gray-900 hover:bg-gray-50"
+                >
+                  Dashboard
+                </NavLink>
+                {role === "students" && (
                   <NavLink
-                    to={item.to || "#"}
-                    key={item.name}
-                    className={`px-4 py-2 rounded-lg font-medium text-sm xl:text-base transition-colors ${
-                      item.active
-                        ? "bg-green-500 text-white"
-                        : "text-gray-600 hover:text-gray-900 hover:bg-gray-50"
-                    }`}
+                    to="/profile"
+                    className="px-4 py-2 rounded-lg font-medium text-sm xl:text-base transition-colors text-gray-600 hover:text-gray-900 hover:bg-gray-50"
                   >
-                    {item.name}
+                    Profile
                   </NavLink>
-                ))}
+                )}
+                <NavLink
+                  to="/leader-board"
+                  className="px-4 py-2 rounded-lg font-medium text-sm xl:text-base transition-colors text-gray-600 hover:text-gray-900 hover:bg-gray-50"
+                >
+                  Rankings
+                </NavLink>
               </div>
             </div>
 
@@ -77,7 +92,7 @@ const Navbar = () => {
                   className="flex items-center space-x-2 hover:bg-gray-50 px-2 lg:px-3 py-2 rounded-lg transition-colors"
                 >
                   <span className="text-sm text-gray-600 hidden lg:inline">
-                    {mockUserData.role}
+                    {role}
                   </span>
                   <svg
                     className={`w-4 h-4 text-gray-400 transition-transform ${
@@ -104,25 +119,32 @@ const Navbar = () => {
                       onClick={() => setIsDropdownOpen(false)}
                     ></div>
                     <div className="absolute right-0 top-full mt-2 w-56 lg:w-64 bg-white rounded-lg shadow-lg border border-gray-200 py-2 z-20">
-                      <div className="px-4 py-3 border-gray-100 grid gap-3">
-                        <NavLink
-                          to="/"
+                      <div
+                        className="px-4 py-3 border-gray-100 grid gap-3"
+                        onClick={(e) => {
+                          if (e.target.matches("a")) {
+                            setRole(e.target.textContent);
+                          }
+                        }}
+                      >
+                        <Link
+                          to="/student-section"
                           className="text-sm font-medium text-gray-900 truncate"
                         >
-                          Students
-                        </NavLink>
-                        <NavLink
+                          students
+                        </Link>
+                        <Link
                           to="/tvet-section"
                           className="text-sm font-medium text-gray-900 truncate"
                         >
                           TVET Board
-                        </NavLink>
-                        <NavLink
+                        </Link>
+                        <Link
                           to="/private-section"
                           className="text-sm font-medium text-gray-900 truncate"
                         >
                           Private
-                        </NavLink>
+                        </Link>
                       </div>
                       {/* <div className="py-1">
                       {dropdownItems.map((item) => (
