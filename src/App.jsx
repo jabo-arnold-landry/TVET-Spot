@@ -1,7 +1,6 @@
 import TVETSpotLanding from "./Landing";
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Navbar from "./Components/Navbar";
 import Dashboard from "./Components/Dashboard";
 import Leaderboard from "./components/Leaderboard"; // Import your Leaderboard component
 import Profile from "./pages/Profile"; // Import Profile component if needed
