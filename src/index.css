@@ -10,3 +10,7 @@
 body {
   background-color: hsla(210, 24%, 98%, 1);
 }
+.active {
+  background-color: rgb(71, 212, 14);
+  color: white;
+}
