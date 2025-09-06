@@ -1,6 +1,7 @@
 import React, { useState, useContext } from "react";
 import { Link, NavLink, Outlet } from "react-router-dom";
 import { roleContext } from "../ContextProvider";
+import tvetSpotIcon from "../assets/tvetSpot.svg";
 const Navbar = () => {
   const { role, setRole } = useContext(roleContext);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
@@ -43,10 +44,12 @@ const Navbar = () => {
             <div className="flex items-center">
               {/* Logo */}
               <div className="flex items-center space-x-2 lg:space-x-3">
-                <div className="w-8 h-8 lg:w-10 lg:h-10 bg-green-500 rounded-lg flex items-center justify-center flex-shrink-0">
-                  <div className="w-4 h-3 lg:w-5 lg:h-3 bg-white rounded-sm flex items-center justify-center">
-                    <div className="w-1.5 h-0.5 lg:w-2 lg:h-1 bg-green-500"></div>
-                  </div>
+                <div className="w-16 h-16  flex items-center justify-center">
+                  <img
+                    src={tvetSpotIcon}
+                    alt="Custom Icon"
+                    className="w-16 h-16"
+                  />
                 </div>
                 <div className="flex flex-col">
                   <span className="text-lg lg:text-xl font-bold text-gray-900">
@@ -59,7 +62,7 @@ const Navbar = () => {
               </div>
 
               {/* Desktop Navigation Links */}
-              <div className="hidden lg:flex items-center space-x-1 ml-8 xl:ml-12">
+              <div className="ml-60 hidden lg:flex items-center space-x-1 ml-8 xl:ml-12">
                 <NavLink
                   to={rolecheck()}
                   className={({ isActive }) =>
@@ -191,7 +194,10 @@ const Navbar = () => {
                     />
                   </svg>
                 </button>
-                <button className="flex items-center space-x-2 hover:text-gray-900 transition-colors p-2 hover:bg-gray-50 rounded-lg">
+                <Link
+                  to="/starting-page"
+                  className="flex items-center space-x-2 hover:text-gray-900 transition-colors p-2 hover:bg-gray-50 rounded-lg"
+                >
                   <svg
                     className="w-5 h-5"
                     fill="none"
@@ -206,7 +212,7 @@ const Navbar = () => {
                     />
                   </svg>
                   <span className="text-sm xl:inline hidden">Logout</span>
-                </button>
+                </Link>
               </div>
             </div>
 

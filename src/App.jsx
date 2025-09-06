@@ -1,7 +1,7 @@
 import TVETSpotLanding from "./Landing";
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Navbar from "./components/Navbar";
+import Navbar from "./Components/Navbar";
 import Dashboard from "./Components/Dashboard";
 import Leaderboard from "./components/Leaderboard"; // Import your Leaderboard component
 import Profile from "./pages/Profile"; // Import Profile component if needed
@@ -17,6 +17,7 @@ function App() {
           <Routes>
             {/* Main page route */}
             <Route path="/" element={<TVETSpotLanding />} />
+            <Route path="starting-page" element={<TVETSpotLanding />} />
             <Route path="student-section" element={<Growth />} />
             <Route path="tvet-section" element={<Dashboard />} />
             <Route path="private-section" element={<IndustryPage />} />
