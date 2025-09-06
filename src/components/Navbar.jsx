@@ -31,7 +31,7 @@ const Navbar = () => {
     } else if (role === "TVET Board") {
       return "/tvet-section";
     } else {
-      return "private-section";
+      return "/private-section";
     }
   }
   return (
