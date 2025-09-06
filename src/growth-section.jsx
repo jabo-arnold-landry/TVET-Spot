@@ -1,6 +1,6 @@
-import TabComponent from "./Components/competition";
-import Navbar from "./Components/Navbar";
-import Welcome from "./Components/Welcome";
+import TabComponent from "./components/competition";
+import Navbar from "./components/Navbar";
+import Welcome from "./components/Welcome";
 import MyGrowthSection from "./pages/MyGrowthSection";
 function Growth() {
   return (
