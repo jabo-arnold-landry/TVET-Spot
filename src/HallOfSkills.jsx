@@ -93,7 +93,7 @@ const HallOfSkills = () => {
           );
         })}
       </div>
-      <h1 className="text-sm md:text-base font-[Inter] mb-2 tracking-wider">
+      <h1 className=" text-black text-sm md:text-base font-[Inter] mb-2 tracking-wider">
         HALL OF SKILLS
       </h1>
     </div>
