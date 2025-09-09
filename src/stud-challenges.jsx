@@ -9,6 +9,8 @@ import {
   Target,
   CheckCircle,
 } from "lucide-react";
+// Import the JoinChallengeButton component
+import JoinChallengeButton from "./components/joinC";
 
 const ChallengesSection = () => {
   const [selectedChallenge, setSelectedChallenge] = useState(null);
@@ -104,7 +106,7 @@ const ChallengesSection = () => {
   const isJoined = (challengeId) => joinedChallenges.includes(challengeId);
 
   return (
-    <div className="w-full  mx-auto p-6 bg-gray-50 min-h-screen">
+    <div className="w-full  mx-auto p-6 bg-gray-50 min-h-screen">
       <div className="mb-6 flex justify-between items-center">
         <h2 className="text-2xl font-bold text-gray-800">
           Available Challenges
@@ -149,17 +151,10 @@ const ChallengesSection = () => {
                 </div>
               </div>
 
-              <button
-                onClick={() => openModal(challenge)}
-                className={`px-6 py-2 rounded-lg font-medium transition-colors whitespace-nowrap ${
-                  isJoined(challenge.id)
-                    ? "bg-gray-400 text-white cursor-not-allowed"
-                    : "bg-green-500 hover:bg-green-600 text-white "
-                } ms:mr-110 md:mt-0 mt-4`}
-                disabled={isJoined(challenge.id)}
-              >
-                {isJoined(challenge.id) ? "Joined" : "Join Challenge"}
-              </button>
+              {/* Using the JoinChallengeButton component */}
+              <div onClick={() => openModal(challenge)}>
+                <JoinChallengeButton isJoined={isJoined(challenge.id)} />
+              </div>
             </div>
             {/* tags and sponsor div */}
             <div className="flex justify-between items-center md:flex-row flex-col gap-4">
@@ -168,7 +163,7 @@ const ChallengesSection = () => {
                 {challenge.tags.map((tag, index) => (
                   <span
                     key={index}
-                    className={`border border-gray-300 text-yellow-500  text-xs px-3 py-1 rounded-full font-small`}
+                    className={`border border-gray-300 text-yellow-500  text-xs px-3 py-1 rounded-full font-small`}
                   >
                     {tag.name}
                   </span>
