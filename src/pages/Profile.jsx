@@ -1,12 +1,11 @@
 import { useEffect, useState } from "react";
 import { gettingItems } from "../indexBD";
-import Microlink from "@microlink/react";
-import clsx from "clsx";
 import ChallengesCard from "../components/ChallengesCard";
 import RecentNotification from "../components/RecentNotification";
 import CardStats from "../components/CardStats";
 import { Award } from "lucide-react";
 import Navbar from "../components/Navbar";
+import LinkPreviewCard from "../components/LinkPreview";
 const hackathon = [
   {
     id: 1,
@@ -84,7 +83,7 @@ function Profile() {
               id="showcase-section"
               className={
                 !activeTab
-                  ? "border-b-8 border-b-primary w-fit text-primary font-bold"
+                  ? "border-b border-b-primary w-fit text-primary font-bold"
                   : "font-light text-azure-34 capitalize mb-3"
               }
             >
@@ -94,7 +93,7 @@ function Profile() {
               id="hackathon-section"
               className={
                 activeTab
-                  ? "border-b-8 border-b-primary w-fit text-primary font-bold"
+                  ? "border-b border-b-primary w-fit text-primary font-bold"
                   : "font-light text-azure-34 capitalize mb-3"
               }
             >
@@ -104,7 +103,7 @@ function Profile() {
           <section className="grid grid-cols-1 sm:grid-cols-3 gap-4">
             <article className="grid gap-2 sm:col-span-2">
               {!activeTab ? (
-                <LinkPreview />
+                <LinkPreviewCard />
               ) : (
                 <ChallengesCard challenges={hackathon} />
               )}
@@ -122,20 +121,5 @@ function Profile() {
     </>
   );
 }
-function LinkPreview() {
-  return (
-    <>
-      <Microlink
-        url="https://www.youtube.com/watch?v=twDtPs5NCjA"
-        autoPlay
-        media="video"
-      />
-      <Microlink
-        url="https://www.youtube.com/watch?v=twDtPs5NCjA"
-        autoPlay
-        media="video"
-      />
-    </>
-  );
-}
+
 export default Profile;

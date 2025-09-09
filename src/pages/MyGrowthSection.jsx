@@ -6,11 +6,11 @@ import {
 } from "lucide-react";
 import Card from "../components/Card";
 import Leaderboard from "../components/Leaderboard";
-import { settingItems } from "../indexBD";
-import { useState } from "react";
+// import { settingItems } from "../indexBD";
+import { useState, useContext } from "react";
 import { useNavigate, NavLink } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
-
+import { roleContext } from "../ContextProvider";
 export default function MyGrowthSection() {
   const [showPopup, setShowPopup] = useState(false);
   const [showLeaderboard, setShowLeaderboard] = useState(false);
@@ -87,6 +87,7 @@ export default function MyGrowthSection() {
 }
 
 function Showcase({ isOpen, onClose }) {
+  const { showcase, setShowcase } = useContext(roleContext);
   const [link, setLink] = useState("");
   const [urlInfo, seturlinfo] = useState([]);
   const apiKey = "pk_01dfcefda77adf8d9e22acd16e5be2038b8c737a";
@@ -104,13 +105,13 @@ function Showcase({ isOpen, onClose }) {
           `failed to get the link's data make sure you are providing the correct link`
         );
       }
-      seturlinfo((prev) => [...prev, data]);
+      setShowcase((prev) => [...prev, data]);
     } catch (err) {
       alert(err.message);
       console.log("something wrong occured:", err);
     }
   }
-
+  console.log(showcase);
   return (
     <AnimatePresence>
       {isOpen && (
@@ -144,7 +145,7 @@ function Showcase({ isOpen, onClose }) {
                 onClick={async (e) => {
                   e.preventDefault();
                   linkParser(link);
-                  await settingItems(...urlInfo);
+                  // await settingItems(...urlInfo);
                   setLink("");
                   onClose();
                 }}
