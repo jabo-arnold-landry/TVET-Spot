@@ -88,6 +88,28 @@ export default function MyGrowthSection() {
 
 function Showcase({ isOpen, onClose }) {
   const [link, setLink] = useState("");
+  const [urlInfo, seturlinfo] = useState([]);
+  const apiKey = "pk_01dfcefda77adf8d9e22acd16e5be2038b8c737a";
+  async function linkParser(url) {
+    if (!url) {
+      return alert("please input the link");
+    }
+    try {
+      const response = await fetch(
+        `https://jsonlink.io/api/extract?url=${url}&api_key=${apiKey}`
+      );
+      const data = await response.json();
+      if (!response.ok || data.error) {
+        throw new Error(
+          `failed to get the link's data make sure you are providing the correct link`
+        );
+      }
+      seturlinfo((prev) => [...prev, data]);
+    } catch (err) {
+      alert(err.message);
+      console.log("something wrong occured:", err);
+    }
+  }
 
   return (
     <AnimatePresence>
@@ -117,10 +139,12 @@ function Showcase({ isOpen, onClose }) {
                 value={link}
               />
               <button
-                className="text-white bg-primary rounded p-1 capitalize"
+                className="text-white bg-primary rounded p-1 capitalize cursor-pointer disabled:bg-gray-500 disabled:text-white disabled:cursor-not-allowed"
+                disabled={!link}
                 onClick={async (e) => {
                   e.preventDefault();
-                  await settingItems({ url: link, cors: false });
+                  linkParser(link);
+                  await settingItems(...urlInfo);
                   setLink("");
                   onClose();
                 }}
