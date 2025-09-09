@@ -117,10 +117,12 @@ function Showcase({ isOpen, onClose }) {
                 value={link}
               />
               <button
-                className="text-white bg-primary rounded p-1 capitalize"
+                className="text-white bg-primary rounded p-1 capitalize cursor-pointer disabled:bg-gray-500 disabled:text-white disabled:cursor-not-allowed"
+                disabled={!link}
                 onClick={async (e) => {
                   e.preventDefault();
-                  await settingItems({ url: link, cors: false });
+                  // await settingItems({ url: link, cors: false });
+                  // setLink("");
                   setLink("");
                   onClose();
                 }}
