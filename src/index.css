@@ -1,1 +1,5 @@
 @import "tailwindcss";
+@theme {
+  --font-DISPLAY: "Orbitron", sans-serif;
+  --font-roboto: "Roboto", sans-serif;
+}

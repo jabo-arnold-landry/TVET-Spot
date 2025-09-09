@@ -82,7 +82,7 @@ const TestimonialsCarousel = () => {
   return (
     <div className="flex flex-col items-center justify-center text-black font-[Inter] w-full min-w-0 p-4">
       {/* Header */}
-      <h1 className="text-xl md:text-2xl font-bold mb-4 tracking-wider text-black text-center">
+      <h1 className="font-roboto text-xl md:text-2xl font-normal mb-4 tracking-wider text-black text-center">
         TESTIMONIALS
       </h1>
 
