@@ -9,6 +9,7 @@ import {
   Target,
   CheckCircle,
 } from "lucide-react";
+import JoinChallengeButton from "./components/joinC";
 
 const ChallengesSection = () => {
   const [selectedChallenge, setSelectedChallenge] = useState(null);
@@ -149,17 +150,11 @@ const ChallengesSection = () => {
                 </div>
               </div>
 
-              <button
+              {/* REPLACED BUTTON ON MAIN PAGE */}
+              <JoinChallengeButton
+                isJoined={isJoined(challenge.id)}
                 onClick={() => openModal(challenge)}
-                className={`px-6 py-2 rounded-lg font-medium transition-colors whitespace-nowrap ${
-                  isJoined(challenge.id)
-                    ? "bg-gray-400 text-white cursor-not-allowed"
-                    : "bg-green-500 hover:bg-green-600 text-white "
-                } ms:mr-110 md:mt-0 mt-4`}
-                disabled={isJoined(challenge.id)}
-              >
-                {isJoined(challenge.id) ? "Joined" : "Join Challenge"}
-              </button>
+              />
             </div>
             {/* tags and sponsor div */}
             <div className="flex justify-between items-center md:flex-row flex-col gap-4">
@@ -319,19 +314,11 @@ const ChallengesSection = () => {
               >
                 Cancel
               </button>
-              <button
+              {/* REPLACED BUTTON IN MODAL */}
+              <JoinChallengeButton
+                isJoined={isJoined(selectedChallenge.id)}
                 onClick={() => joinChallenge(selectedChallenge.id)}
-                className={`px-8 py-2 rounded-lg font-medium transition-colors ${
-                  isJoined(selectedChallenge.id)
-                    ? "bg-gray-400 text-white cursor-not-allowed"
-                    : "bg-green-500 hover:bg-green-600 text-white"
-                }`}
-                disabled={isJoined(selectedChallenge.id)}
-              >
-                {isJoined(selectedChallenge.id)
-                  ? "Already Joined"
-                  : "Join Challenge"}
-              </button>
+              />
             </div>
           </div>
         </div>

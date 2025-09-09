@@ -6,14 +6,18 @@ import { roleContext } from "./ContextProvider";
 import TestimonialsCarousel from "./testimonials";
 import About from "./About";
 import HallOfSkills from "./HallOfSkills";
-import { NavLink } from "react-router-dom";
 import SuccessStoryForm from "./Successor";
 
 const TVETSpotLanding = () => {
   const [showModal, setShowModal] = useState(false);
   const { setRole } = useContext(roleContext);
+
   const handleGetStarted = () => {
     setShowModal(true);
+  };
+
+  const handleRoleSelection = (roleName) => {
+    setRole(roleName);
   };
 
   return (
@@ -227,52 +231,12 @@ const TVETSpotLanding = () => {
                 </p>
               </div>
 
-            <div
-              className="grid md:grid-cols-3 gap-6"
-              onClick={(e) => {
-                const link = e.target.closest("a");
-                if (link && link.dataset.name) {
-                  setRole(link.dataset.name);
-                }
-              }}
-            >
-              {/* Student Option */}
-              <NavLink
-                to="/student-section"
-                className="group p-6 border-2 border-gray-200 rounded-xl hover:border-green-500 hover:bg-green-50 transition-all"
-                data-name="students"
-              >
-                <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mx-auto mb-4 group-hover:bg-green-200">
-                  <Users className="w-6 h-6 text-green-600" />
-                </div>
-                <h4 className="text-lg font-semibold text-gray-900 mb-2">
-                  Student
-                </h4>
-                <p className="text-sm text-gray-600">
-                  Build skills and showcase talent
-                </p>
-              </NavLink>
-
-              {/* TVET Organization Option */}
-              <NavLink
-                to="/tvet-section"
-                className="group p-6 border-2 border-gray-200 rounded-xl hover:border-yellow-500 hover:bg-yellow-50 transition-all"
-                data-name="TVET Board"
-              >
-                <div className="w-12 h-12 bg-yellow-100 rounded-lg flex items-center justify-center mx-auto mb-4 group-hover:bg-yellow-200">
-                  <GraduationCap className="w-6 h-6 text-yellow-600" />
-                </div>
-                <h4 className="text-lg font-semibold text-gray-900 mb-2">
-                  TVET Organization
-                </h4>
-                <p className="text-sm text-gray-600">
-                  Monitor and manage programs
-                </p>
-              </NavLink>
+              {/* Corrected Modal Links */}
               <div className="grid md:grid-cols-3 gap-6">
                 {/* Student Option */}
                 <NavLink
                   to="/student-section"
+                  onClick={() => handleRoleSelection("student")}
                   className="group p-6 border-2 border-gray-200 rounded-xl hover:border-green-500 hover:bg-green-50 transition-all"
                 >
                   <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mx-auto mb-4 group-hover:bg-green-200">
@@ -286,25 +250,10 @@ const TVETSpotLanding = () => {
                   </p>
                 </NavLink>
 
-              {/* Industry Partner Option */}
-              <NavLink
-                to="/private-section"
-                className="group p-6 border-2 border-gray-200 rounded-xl hover:border-blue-500 hover:bg-blue-50 transition-all"
-                data-name="Private"
-              >
-                <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mx-auto mb-4 group-hover:bg-blue-200">
-                  <Building2 className="w-6 h-6 text-blue-600" />
-                </div>
-                <h4 className="text-lg font-semibold text-gray-900 mb-2">
-                  Industry Partner
-                </h4>
-                <p className="text-sm text-gray-600">
-                  Discover talent and create challenges
-                </p>
-              </NavLink>
                 {/* Industry Partner Option */}
                 <NavLink
                   to="/private-section"
+                  onClick={() => handleRoleSelection("industry partner")}
                   className="group p-6 border-2 border-gray-200 rounded-xl hover:border-blue-500 hover:bg-blue-50 transition-all"
                 >
                   <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mx-auto mb-4 group-hover:bg-blue-200">
@@ -321,6 +270,7 @@ const TVETSpotLanding = () => {
                 {/* TVET Organization Option */}
                 <NavLink
                   to="/tvet-section"
+                  onClick={() => handleRoleSelection("tvet organization")}
                   className="group p-6 border-2 border-gray-200 rounded-xl hover:border-yellow-500 hover:bg-yellow-50 transition-all"
                 >
                   <div className="w-12 h-12 bg-yellow-100 rounded-lg flex items-center justify-center mx-auto mb-4 group-hover:bg-yellow-200">
