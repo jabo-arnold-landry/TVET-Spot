@@ -90,7 +90,7 @@ function Showcase({ isOpen, onClose }) {
   const [link, setLink] = useState("");
   const [urlInfo, seturlinfo] = useState([]);
   const apiKey = "pk_01dfcefda77adf8d9e22acd16e5be2038b8c737a";
-  async function parseLink(url) {
+  async function linkParser(url) {
     if (!url) {
       return alert("please input the link");
     }
@@ -143,7 +143,7 @@ function Showcase({ isOpen, onClose }) {
                 disabled={!link}
                 onClick={async (e) => {
                   e.preventDefault();
-                  parseLink(link);
+                  linkParser(link);
                   await settingItems(...urlInfo);
                   setLink("");
                   onClose();
