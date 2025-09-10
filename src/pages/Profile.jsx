@@ -69,10 +69,12 @@ function Profile() {
   return (
     <>
       <Navbar />
-      <strong className="text-xl font-bold">Growth Profile</strong>
-      <p className="my-2 capitalize text-azure-34 text-sm">
-        track your learning journey and achievements
-      </p>
+      <header className="mx-4 my-2">
+        <strong className="text-xl font-bold">Growth Profile</strong>
+        <p className="my-2 capitalize text-azure-34 text-sm">
+          track your learning journey and achievements
+        </p>
+      </header>
 
       <main onClick={SetHackathonsTab} className="mx-4 my-2">
         <div className="flex gap-10 cursor-pointer my-2">

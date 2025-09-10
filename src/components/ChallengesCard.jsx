@@ -2,11 +2,11 @@ import { Users } from "lucide-react";
 function ChallengesCard({ challenges }) {
   return (
     <>
-      <div className="flex">
+      <div className="flex flex-wrap sm:grid sm:grid-cols-2 sm:gap-2 md:flex md:flex-3">
         {challenges.map((challenge) => (
           <div
             key={challenge.id}
-            className="bg-white rounded-lg border border-gray-200 shadow-sm mx-3 hover:shadow-md transition-shadow"
+            className="bg-white rounded-lg border border-gray-200 shadow-sm mx-3 hover:shadow-md transition-shadow "
           >
             <div className="px-2 py-4">
               <div className="">
