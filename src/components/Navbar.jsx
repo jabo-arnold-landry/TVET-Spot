@@ -62,7 +62,7 @@ const Navbar = () => {
               </div>
 
               {/* Desktop Navigation Links */}
-              <div className="ml-60 hidden lg:flex items-center space-x-1 ml-8 xl:ml-12">
+              <div className="ml-60 hidden lg:flex items-center space-x-1 lg:ml-8 xl:ml-12">
                 <NavLink
                   to={rolecheck()}
                   className={({ isActive }) =>
