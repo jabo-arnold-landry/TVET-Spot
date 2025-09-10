@@ -74,47 +74,46 @@ function Profile() {
         track your learning journey and achievements
       </p>
 
-        <main onClick={SetHackathonsTab} className="grid gap-3 col-span-2">
-          <div className="flex gap-10 cursor-pointer my-2">
-            <button
-              id="showcase-section"
-              className={
-                !activeTab
-                  ? "border-b border-b-primary w-fit text-primary font-bold"
-                  : "font-light text-azure-34 capitalize mb-3"
-              }
-            >
-              showcase
-            </button>
-            <button
-              id="hackathon-section"
-              className={
-                activeTab
-                  ? "border-b border-b-primary w-fit text-primary font-bold"
-                  : "font-light text-azure-34 capitalize mb-3"
-              }
-            >
-              hackathon
-            </button>
-          </div>
-          <section className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-            <article className="grid gap-2 sm:col-span-2">
-              {!activeTab ? (
-                <LinkPreviewCard />
-              ) : (
-                <ChallengesCard challenges={hackathon} />
-              )}
-              <section className="bg-white px-2.5 py-0.5 rounded grid gap-1.5">
-                <strong>Recent Notification</strong>
-                <RecentNotification notifications={recentUpdates} />
-              </section>
-            </article>
-            <aside className="mx-3 grid gap-2">
-              <CardStats />
-            </aside>
-          </section>
-        </main>
-      </div>
+      <main onClick={SetHackathonsTab} className="mx-4 my-2">
+        <div className="flex gap-10 cursor-pointer my-2">
+          <button
+            id="showcase-section"
+            className={
+              !activeTab
+                ? "border-b border-b-primary w-fit text-primary font-bold"
+                : "font-light text-azure-34 capitalize mb-3"
+            }
+          >
+            showcase
+          </button>
+          <button
+            id="hackathon-section"
+            className={
+              activeTab
+                ? "border-b border-b-primary w-fit text-primary font-bold"
+                : "font-light text-azure-34 capitalize mb-3"
+            }
+          >
+            hackathon
+          </button>
+        </div>
+        <section className="grid gap-1.5 md:grid-cols-3">
+          <article className="col-span-2">
+            {!activeTab ? (
+              <LinkPreviewCard />
+            ) : (
+              <ChallengesCard challenges={hackathon} />
+            )}
+          </article>
+          <aside className="flex flex-col gap-2.5">
+            <CardStats />
+            <section className="bg-white rounded-md grid gap-2 px-2.5 py-4 shadow-xl shadow-gray-200">
+              <strong>Recent Notification</strong>
+              <RecentNotification notifications={recentUpdates} />
+            </section>
+          </aside>
+        </section>
+      </main>
     </>
   );
 }

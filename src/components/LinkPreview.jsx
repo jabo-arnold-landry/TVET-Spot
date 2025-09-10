@@ -5,7 +5,7 @@ export default function LinkPreviewCard() {
   if (!showcase) return null;
 
   return (
-    <main className="grid gap-2 md:grid-cols-2">
+    <main className="flex gap-2 flex-wrap">
       {showcase.map((object, index) => {
         const { title, description, images, url, site_name } = object;
         const thumbnail =
