@@ -77,13 +77,13 @@ function Profile() {
       </header>
 
       <main onClick={SetHackathonsTab} className="mx-4 my-2">
-        <div className="flex gap-10 cursor-pointer my-2">
+        <div className="flex gap-10  my-2 capitalize">
           <button
             id="showcase-section"
             className={
               !activeTab
-                ? "border-b border-b-primary w-fit text-primary font-bold"
-                : "font-light text-azure-34 capitalize mb-3"
+                ? "border-b border-b-primary w-fit text-primary font-bold capitalize"
+                : "font-light text-azure-34 capitalize cursor-pointer"
             }
           >
             showcase
@@ -92,8 +92,8 @@ function Profile() {
             id="hackathon-section"
             className={
               activeTab
-                ? "border-b border-b-primary w-fit text-primary font-bold"
-                : "font-light text-azure-34 capitalize mb-3"
+                ? "border-b border-b-primary w-fit text-primary font-bold capitalize"
+                : "font-light text-azure-34 capitalize cursor-pointer"
             }
           >
             hackathon
