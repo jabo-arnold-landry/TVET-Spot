@@ -236,7 +236,7 @@ const TVETSpotLanding = () => {
                 {/* Student Option */}
                 <NavLink
                   to="/student-section"
-                  onClick={() => handleRoleSelection("student")}
+                  onClick={() => handleRoleSelection("students")}
                   className="group p-6 border-2 border-gray-200 rounded-xl hover:border-green-500 hover:bg-green-50 transition-all"
                 >
                   <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mx-auto mb-4 group-hover:bg-green-200">
